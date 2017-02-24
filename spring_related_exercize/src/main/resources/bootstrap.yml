@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: spring_related_excersize
+
+  sleuth:
+    log:
+      json:
+        enabled: false
+      slf4j:
+        enabled: false

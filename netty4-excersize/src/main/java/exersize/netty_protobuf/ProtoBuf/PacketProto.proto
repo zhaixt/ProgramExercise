@@ -1,0 +1,36 @@
+option java_package = "exersize.netty_protobuf.ProtoBuf";
+
+option java_outer_classname = "PacketProtoBuf";
+
+
+message PacketProto{
+
+	required int32 msgId=1;
+
+	required RedisRequestProto redisRequestProto=2;
+	required RedisResponseProto redisResponseProto =3;
+	required bool isFinished=4;
+
+}
+
+message RedisRequestProto{
+	required int32 namespace = 1;
+	required string command = 2;
+	required string key= 3;
+	optional int32 expireTime=4;
+	optional uint64 version = 5;
+	optional bytes value = 6;
+	optional string valueString = 7;
+	optional int32 timeout = 8;
+}
+
+message RedisResponseProto{
+	optional int32 code = 1;
+	optional string message = 2;
+	optional string success= 3;
+	optional string value=4;
+	optional string valueString=5;
+	optional string key = 6;
+	optional uint64 version = 7;
+	optional int32 expireDate = 8;
+}
