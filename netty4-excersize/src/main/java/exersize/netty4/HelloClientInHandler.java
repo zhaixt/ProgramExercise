@@ -36,7 +36,17 @@ public class HelloClientInHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
 
-
+//        super.channelInactive(ctx);
+//        MsgHandle.getInstance().channel = null;
+//
+//        //重新连接服务器
+//        ctx.channel().eventLoop().schedule(new Runnable() {
+//            @Override
+//            public void run() {
+//                MyClient.doConnect();
+//            }
+//        }, 2, TimeUnit.SECONDS);
+//        ctx.close();
 //        HelloClient helloClient = new HelloClient();
 //        helloClient.doConnect();
     }

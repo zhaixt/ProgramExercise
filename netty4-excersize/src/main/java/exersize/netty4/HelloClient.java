@@ -61,7 +61,7 @@ public class HelloClient {
                     if(future.isSuccess()) {
 
                         Thread.sleep(2000);
-//                        doConnect(host, port);
+                        doConnect(host, port);
                     } else {
                         future.channel().closeFuture().addListener(new ChannelFutureListener() {
                             @Override
