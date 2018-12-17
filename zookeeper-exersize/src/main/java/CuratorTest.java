@@ -14,7 +14,7 @@ public class CuratorTest {
 
     public static void main(String[] args) throws Exception {
         String path = "/";
-        CuratorFramework client = CuratorFrameworkFactory.builder().connectString("10.139.103.1:2181").retryPolicy(new RetryNTimes(Integer.MAX_VALUE, 1000)).connectionTimeoutMs(5000).build();
+        CuratorFramework client = CuratorFrameworkFactory.builder().connectString("10.18.19.17:12181").retryPolicy(new RetryNTimes(Integer.MAX_VALUE, 1000)).connectionTimeoutMs(5000).build();
         // 启动 上面的namespace会作为一个最根的节点在使用时自动创建
         client.start();
 
@@ -29,12 +29,12 @@ public class CuratorTest {
 //
 //        // 取数据
 //        byte[] midbytes= client.getData().watched().inBackground().forPath("/test111");
-        byte[] midbytes= client.getData().forPath("/test111");
-        String str2=new String(midbytes,"UTF-8");
-        System.out.println("get data:"+str2);
+//        byte[] midbytes= client.getData().forPath("/test111");
+//        String str2=new String(midbytes,"UTF-8");
+//        System.out.println("get data:"+str2);
 //
 //        // 检查路径是否存在
-       Stat x = client.checkExists().forPath("/zk");
+       Stat x = client.checkExists().forPath("/");
         System.out.println(x.toString());
 
         ///父目录下有子节点，不能直接删除，会报错： KeeperErrorCode = Directory not empty for /testParentPath

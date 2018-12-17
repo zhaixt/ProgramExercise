@@ -27,7 +27,7 @@ public class Netty3Client {
             public ChannelPipeline getPipeline() throws Exception {
                 return Channels.pipeline(new StringDecoder(), new StringEncoder(), new ClientHandler());
             }
-        });
+        });1
 
         // Start the connection attempt.
         final ChannelFuture future = bootstrap.connect(new InetSocketAddress("localhost", 9080));

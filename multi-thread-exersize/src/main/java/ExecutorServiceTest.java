@@ -2,10 +2,11 @@ import java.util.concurrent.*;
 
 /**
  * Created by zhaixt on 2015/11/5.
+ * ExecutorService是对ThreadPoolExecutor的封装
  */
 public class ExecutorServiceTest {
     public static void main(String[] args){
-        ExecutorService executorService =  Executors.newCachedThreadPool();
+        ExecutorService executorService =  Executors.newCachedThreadPool();//这里return的就是ThreadPoolExecutor
 //        executorService.submit()
         for(int i=0;i<15;i++){
 

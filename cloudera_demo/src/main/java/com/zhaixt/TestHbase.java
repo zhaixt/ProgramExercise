@@ -269,6 +269,7 @@ public class TestHbase {
         param.put("Claim1000001", JSONArray.fromObject(values[0]));
         param.put("Claim1000002", JSONArray.fromObject(values[1]));
         param.put("Claim1000003", JSONArray.fromObject(values[2]));
+        param.put("Claim1000001", JSONArray.fromObject(values[4]));
 
         TableName tableName = TableName.valueOf(TABLE_NAME);
         byte[] family = Bytes.toBytes(COLUMN_FAMILY_NAME);

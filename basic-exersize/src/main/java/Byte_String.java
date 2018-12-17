@@ -1,3 +1,5 @@
+import org.apache.commons.lang3.StringUtils;
+
 import java.io.UnsupportedEncodingException;
 
 /**
@@ -13,5 +15,17 @@ public class Byte_String {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
+        String str = "dskeabcedeh";
+        StringUtils.substringBefore(str, "e");
+  /*结果是：dsk*/
+
+        StringUtils.substringBeforeLast(str, "e");//一直找到最后一个指定的字符串
+  /*结果是：dskeabce*/
+
+        StringUtils.substringAfter(str, "e");
+  /*结果是：abcedeh*/
+
+        StringUtils.substringAfterLast(str, "e");
+         /*结果是：h*/
     }
 }

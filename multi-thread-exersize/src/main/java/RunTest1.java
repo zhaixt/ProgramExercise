@@ -11,31 +11,27 @@ public class RunTest1 {
         Thread d = new Thread(mythread, "D");
         Thread e = new Thread(mythread, "E");
 
-//        MyThre
-// ad a = new
-// o MyThread("A");
-//        MyThread b = new MyThread("B");
-//        MyThread c = new MyThread("C");
-//        MyThread d = new MyThread("D");
-//        MyThread e = new MyThread("E");
+
+
         a.start();
-        b.start();
-        c.start();
-        d.start();
-        e.start();
+//        b.start();
+//        c.start();
+//        d.start();
+//        e.start();
+
+        mythread.start();
+
+        //runnable
+        Thread m = new Thread(new MyThreadRunnable(2));
+        m.start();
+
+
+
 
        //线程的另一种写法
         Thread t = new Thread(new Runnable() {
-            int i = 0;
             public void run() {
-                System.out.println("i="+i);
-                while (i<5) {
-                    try {
-                        i++;
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
+                System.out.println("new runnable");
             }
         });
         t.start();
@@ -45,15 +41,7 @@ public class RunTest1 {
             int j = 0;
 
             public void run() {
-                System.out.println("j="+j);
-
-                while (j<5) {
-                    try {
-                        j++;
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
+                System.out.println("new thread,new runnable");
             }
         }).start();
     }
