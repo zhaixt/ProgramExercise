@@ -1,4 +1,4 @@
-package pattern_design;
+package design_pattern;
 
 /**
  * Created by zhaixt on 2018/10/21.

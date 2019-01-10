@@ -57,6 +57,9 @@ public class ObjectTest {
         Student stu1 = new Student();
         Student stu2 = new Student();
 
+        System.out.println(System.getProperty("java.io.tmpdir"));
+
+
     }
 
 

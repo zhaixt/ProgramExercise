@@ -1,4 +1,4 @@
-package pattern_design.bridge;
+package design_pattern.bridge;
 
 /**
  * Created by zhaixt on 2018/11/20.

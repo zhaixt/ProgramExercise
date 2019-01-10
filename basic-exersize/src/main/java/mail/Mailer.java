@@ -42,12 +42,12 @@ public class Mailer {
     final static Logger logger = LoggerFactory.getLogger(Mailer.class);
 
 
-    String[] tos = {"xiaotong.zhai@dianrong.com"};//recipient email addresses
+    String[] tos = {"xiaotong.zhai@126.com"};//recipient email addresses
     boolean areThereAttachments = false;
     String subject = "local test 1";
     String message = "local";
     String pngMessage = "";
-    String from = "data-noreply@dianrong.com";
+    String from = "data-noreply@126.com";
     String type = "text/plain";
     String username, password; // used for smtpHost authentication
     List<File> attachments;
@@ -252,8 +252,8 @@ public class Mailer {
         @Override
         public PasswordAuthentication getPasswordAuthentication() {
 //			return new PasswordAuthentication(username, password);
-            //todo 写死mail配置
-            return new PasswordAuthentication("data-noreply@dianrong.com", "NaU43GcH0oXP");
+            //todo ，去掉公司相关
+            return new PasswordAuthentication("data-noreply@126.com", "lalala");
         }
     }
 }

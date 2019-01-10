@@ -6,6 +6,6 @@ package classloader;
 public class Benz implements Car{
     @Override
     public void drive(){
-        System.out.println("drive benz");
+        System.out.println("drive benz!");
     }
 }
