@@ -5,9 +5,12 @@ package design_pattern.template;
  */
 public class TemplateTest {
     public static void main(String[] args) {
-        String exp = "8+8";
-        AbstractCalculator cal = new Plus();
-        int result = cal.calculate(exp, "\\+");
+        String exp = "10+8";
+        AbstractCalculator calPlus = new Plus();
+        AbstractCalculator calMinus = new Minuxs();
+        int result = calPlus.calculate(exp, "\\+");
+        int result2 = calMinus.calculate(exp, "\\+");
         System.out.println(result);
+        System.out.println(result2);
     }
 }
