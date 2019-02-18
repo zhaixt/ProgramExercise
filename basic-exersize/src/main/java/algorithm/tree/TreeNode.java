@@ -8,8 +8,8 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
-public class Node {
+public class TreeNode {
     private int data;
-    private Node leftNode;
-    private Node rightNode;
+    private TreeNode leftNode;
+    private TreeNode rightNode;
 }
