@@ -72,6 +72,16 @@ public class EnumTest {
             return elemCount>0?true:false;
 
         }
+
+        public static void valuesTest()
+        {
+            System.out.println("======enum values 遍历=========");
+            for(ProductEnum productEnum : ProductEnum.values()){
+                System.out.println(productEnum.getName()+":"+productEnum.getDesc());
+            }
+
+
+        }
     }
     public static void main(String[] args)
     {
@@ -93,6 +103,7 @@ public class EnumTest {
 
         ModelTypeEnum modelTypeEnum = ModelTypeEnum.valueOf("RULE");
         System.out.println(modelTypeEnum.toString());
+        ProductEnum.valuesTest();
 
     }
 }
