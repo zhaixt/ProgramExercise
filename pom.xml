@@ -27,6 +27,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <docker.registry>10.253.6.113:5000/</docker.registry>
         <docker.repository>ms</docker.repository>
+        <codec.version>1.10</codec.version>
     </properties>
     <repositories>
         <repository>
@@ -121,7 +122,11 @@
             <!--<scope>runtime</scope>-->
         <!--</dependency>-->
         <!-- Spring boot POM -->
-
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>${codec.version}</version>
+        </dependency>
 
     </dependencies>
     <build>

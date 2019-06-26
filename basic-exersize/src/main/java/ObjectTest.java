@@ -1,3 +1,5 @@
+import com.google.common.collect.Lists;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -58,12 +60,27 @@ public class ObjectTest {
         Student stu2 = new Student();
 
         System.out.println(System.getProperty("java.io.tmpdir"));
+        List<Student> students = Lists.newArrayList();
+        student.setHeight(1);
+        student.setAge(20);
+        students.add(student);
+        student = getNewStudent();
+        students.add(student);
+        Student lastStudent = students.get(students.size()-1);
+        lastStudent.setAge(111);
+
+        System.out.println("new student age:"+student.getAge());
 
 
     }
 
 
-
+   private static Student getNewStudent(){
+        Student newStu = new Student();
+        newStu.setAge(100);
+        newStu.setHeight(10);
+        return newStu;
+   }
     public static class Student{
         private int age;
         private int height;

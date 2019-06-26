@@ -3,6 +3,7 @@ import java.util.Date;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by zhaixiaotong on 2016-6-28.
@@ -25,17 +26,24 @@ public class CountDownLatchTest {
         CountDownLatch end = new CountDownLatch(PLAYER_AMOUNT);
         Player[] plays = new Player[PLAYER_AMOUNT];
 
-        for(int i=0;i<PLAYER_AMOUNT;i++)
-            plays[i] = new Player(i+1,begin,end);
+        for(int i=0;i<PLAYER_AMOUNT;i++) {
+            plays[i] = new Player(i + 1, begin, end);
+        }
 
         //设置特定的线程池，大小为5
         ExecutorService exe = Executors.newFixedThreadPool(PLAYER_AMOUNT);
-        for(Player p:plays)
-            exe.execute(p);            //分配线程
+        for(Player p:plays) {
+            //分配线程
+            exe.execute(p);
+        }
         System.out.println("Race begins!");
         begin.countDown();
         try{
-            end.await();            //等待end状态变为0，即为比赛结束
+            //等待end状态变为0，即为比赛结束
+            //end.await();
+
+            //每个job耗时0-2秒，如果只await 1s，那么可能主线程完成以后，还有job在执行中
+            end.await(1, TimeUnit.SECONDS);
             //注：await方法，调用此方法会一直阻塞当前线程，直到计时器的值为0
         }catch (InterruptedException e) {
             // TODO: handle exception
@@ -67,7 +75,7 @@ public class CountDownLatchTest {
             // TODO Auto-generated method stub
             try{
                 begin.await();        //等待begin的状态为0
-                Thread.sleep((long)(Math.random()*100));    //随机分配时间，即运动员完成时间
+                Thread.sleep((long)(Math.random()*2000));    //随机分配时间，即运动员完成时间
                 System.out.println("Play"+id+" arrived.");
             }catch (InterruptedException e) {
                 // TODO: handle exception
