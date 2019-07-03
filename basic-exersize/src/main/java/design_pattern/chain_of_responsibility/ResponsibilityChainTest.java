@@ -4,7 +4,7 @@ package design_pattern.chain_of_responsibility;
  * @author: zhaixt
  * @date: 2019/6/26 9:43
  */
-public class ResposibilityChainTest {
+public class ResponsibilityChainTest {
     public static void main(String[] args) {
         Leader a = new Director("张三");
         Leader b = new Manager("李四");
