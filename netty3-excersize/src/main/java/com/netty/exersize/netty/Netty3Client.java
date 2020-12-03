@@ -27,10 +27,11 @@ public class Netty3Client {
             public ChannelPipeline getPipeline() throws Exception {
                 return Channels.pipeline(new StringDecoder(), new StringEncoder(), new ClientHandler());
             }
-        });1
+        });
 
         // Start the connection attempt.
         final ChannelFuture future = bootstrap.connect(new InetSocketAddress("localhost", 9080));
+//        final ChannelFuture future = bootstrap.connect(new InetSocketAddress("localhost", 8380));
         future.getChannel().write("hahalala");
         // Wait until the connection is closed or the connection attempt fails.
         future.getChannel().getCloseFuture().awaitUninterruptibly();
@@ -58,7 +59,7 @@ public class Netty3Client {
         public void messageReceived(ChannelHandlerContext ctx, MessageEvent e) throws Exception {
             if (e.getMessage() instanceof String) {
                 String message = (String) e.getMessage();
-                System.out.println(message);
+                System.out.println("get response:"+message);
 
                 e.getChannel().write(sin.readLine());
 

@@ -22,7 +22,11 @@ public class Netty3Server {
         bootstrap.setPipelineFactory(new ChannelPipelineFactory() {
             @Override
             public ChannelPipeline getPipeline() throws Exception {
-                return Channels.pipeline(new StringDecoder(), new StringEncoder(), new ServerHandler());
+                ChannelPipeline serverPipeline = Channels.pipeline();
+                serverPipeline.addLast("decoder", new StringDecoder());
+                serverPipeline.addLast("encoder", new StringEncoder());
+                serverPipeline.addLast("handler", new ServerHandler());
+                return serverPipeline;
             }
         });
 

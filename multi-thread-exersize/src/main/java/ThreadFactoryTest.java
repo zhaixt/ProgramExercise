@@ -4,6 +4,5 @@
  */
 public class ThreadFactoryTest {
     public static void main(String[] args) {
-        Thread
     }
 }

@@ -20,7 +20,14 @@ public class ThreadPoolTest {
             threadPoolExecutor.execute(myThread);//通过这个语句执行线程
             System.out.println("线程池中线程数目："+threadPoolExecutor.getPoolSize()+"，队列中等待执行的任务数目："+
                     threadPoolExecutor.getQueue().size()+"，已执行玩别的任务数目："+threadPoolExecutor.getCompletedTaskCount());
+            threadPoolExecutor.execute(new Runnable() {
+                @Override
+                public void run() {
+                    System.out.println("haha");
+                }
+            });
 
+            threadPoolExecutor.execute(() -> System.out.println("haha"));//通过这个语句执行线程
         }
         threadPoolExecutor.shutdown();
         ExecutorService executorService =  new ThreadPoolExecutor(5,10,200,

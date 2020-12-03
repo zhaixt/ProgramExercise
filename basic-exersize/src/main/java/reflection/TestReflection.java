@@ -4,20 +4,33 @@ package reflection;
  * Created by zhaixiaotong on 2016-9-30.
  */
 
+import java8.Transaction;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TestReflection {
     private String username;
     private String password;
     private int[] age;
     private int form;
-
+    private Map<String, Transaction> transactionMap;
     public int getForm() {
         return form;
+    }
+
+    public Map<String, Transaction> getTransactionMap() {
+        return transactionMap;
+    }
+
+    public void setTransactionMap(Map<String, Transaction> transactionMap) {
+        this.transactionMap = transactionMap;
+        Transaction transaction = transactionMap.get("key1");
     }
 
     public void setForm(int form) {
@@ -158,8 +171,11 @@ public class TestReflection {
         method.invoke(t1, "反射执行某个Private修饰的方法");
         System.out.println("password == " + t1.password);
 
-
-        Method method3 = c1.getDeclaredMethod("setUserName", String.class);
+        Map<String,Object> testHashMap = new HashMap<>();
+        testHashMap.put("key1","value1");
+        testHashMap.put("key2","value2");
+        Method method3 = c1.getDeclaredMethod("setTransactionMap", Map.class);
+        method3.invoke(t1,testHashMap);
 
 
     }

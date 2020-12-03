@@ -17,6 +17,15 @@ public class ObjectTest {
         System.out.println(str1.equals(str2));
         System.out.println(str1.hashCode()==str2.hashCode());
 
+        String aa = "today i will go home later";
+        String bb = "today";
+        String cc = aa.substring(0,8);
+        String ddd = "";
+        if(aa.length() > 20){
+            aa = aa.substring(0,20);
+        }
+        System.out.println("ddd:"+ddd);
+        System.out.println("aa:"+aa);
         String strA = new String("abc");
         String strB = new String("abc");
         System.out.println(strA==strB);
